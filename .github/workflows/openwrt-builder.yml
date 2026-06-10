@@ -108,9 +108,11 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
+        echo "CONFIG_TARGET_qualcommax=y" > .config
+        echo "CONFIG_TARGET_qualcommax_ipq53xx=y" >> .config
+        echo "CONFIG_TARGET_DEVICE_qualcommax_ipq53xx_DEVICE_xiaomi_be6500=y" >> .config
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: Download package
