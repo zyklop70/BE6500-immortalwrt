@@ -18,3 +18,8 @@
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+
+# Force Xiaomi BE6500 configuration
+echo "CONFIG_TARGET_qualcommax=y" > .config
+echo "CONFIG_TARGET_qualcommax_ipq53xx=y" >> .config
+echo "CONFIG_TARGET_DEVICE_qualcommax_ipq53xx_DEVICE_xiaomi_be6500=y" >> .config
